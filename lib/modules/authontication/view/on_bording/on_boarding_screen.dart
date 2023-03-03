@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 
@@ -13,9 +12,10 @@ class OnBoardingScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton:FloatingActionButton.extended(onPressed: (){}, label:const Text("Next")) ,
       body: OnBoardingSlider(
-        pageBackgroundColor: Colors.black,
+        pageBackgroundColor: Colors.white,
         headerBackgroundColor: Colors.white,
         finishButtonText: 'Start',
+        finishButtonColor: Colors.black,
         onFinish: (){
           Navigator.pushReplacementNamed(context,RoutsNames.authentication);
         },

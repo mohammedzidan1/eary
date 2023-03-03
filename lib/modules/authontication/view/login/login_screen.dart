@@ -2,7 +2,6 @@ import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/app_routes/routes_mames.dart';
 import '../../../../core/widgets/custom_text_form.dart';
 import '../../../../core/widgets/default_button.dart';

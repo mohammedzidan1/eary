@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton(
-      {Key? key, this.text, this.height, this.width, this.onPressed,this.fontSize,this.fontFamily,this.fontWeight})
+      {Key? key, this.text, this.height,this.color, this.backGroundcolor,this.width, this.onPressed,this.fontSize,this.fontFamily,this.fontWeight})
       : super(key: key);
   final String? text;
   final double? width;
+  final Color? backGroundcolor;
+  final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
   final String? fontFamily;
@@ -20,7 +22,7 @@ class DefaultButton extends StatelessWidget {
         textColor: Colors.white,
         height: height,
         minWidth: width,
-        color: const Color(0xff998BE0),
+        color:backGroundcolor ,
         onPressed: () {
           onPressed!();
         },
@@ -28,6 +30,7 @@ class DefaultButton extends StatelessWidget {
           text!,
           style: TextStyle(
             fontSize: fontSize,
+            color: color,
             fontFamily: fontFamily,
             fontWeight: fontWeight,
           ),
