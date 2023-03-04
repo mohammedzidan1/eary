@@ -1,14 +1,22 @@
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
+import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/app_routes/routes_mames.dart';
 import '../../../../core/widgets/custom_text_form.dart';
 import '../../../../core/widgets/default_button.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final AuthBloc _bloc = AuthBloc();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,22 +46,22 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 19.h,
               ),
-
               SizedBox(
                 height: 15.h,
               ),
               CustomTextField(
+                controller: _bloc.emailController,
                 width: 320.w,
                 height: 49.h,
                 hintText: "Username",
                 hintSize: 16.sp,
                 color: Colors.white,
               ),
-
               SizedBox(
                 height: 15.h,
               ),
               CustomTextField(
+                controller: _bloc.passwordController,
                 width: 320.w,
                 height: 49.h,
                 hintText: "Password",
@@ -64,7 +72,6 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 15.h,
               ),
-
               SizedBox(
                 height: 33.h,
               ),
@@ -76,6 +83,7 @@ class LoginScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontFamily: AppFontFamily.poppinsFamily,
                 onPressed: () {
+                  _bloc.signIn();
                   Navigator.pushNamed(context, RoutsNames.home);
                 },
               ),
@@ -96,20 +104,18 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: (){
-
-                    },
+                    onTap: () {},
                     child: Image.asset(
                       'assets/images/google.png',
                       height: 38.h,
                       width: 40.0.w,
                     ),
                   ),
-                  const   SizedBox(
+                  const SizedBox(
                     width: 36,
                   ),
                   GestureDetector(
-                    onTap: (){},
+                    onTap: () {},
                     child: Image.asset(
                       'assets/images/facebook.png',
                       width: 47.w,
