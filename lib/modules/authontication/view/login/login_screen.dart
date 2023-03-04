@@ -5,7 +5,6 @@ import 'package:eary/modules/authontication/widgets/social_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/app_routes/routes_mames.dart';
 import '../../../../core/widgets/custom_text_form.dart';
 import '../../../../core/widgets/default_button.dart';
 
@@ -84,8 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.w500,
                 fontFamily: AppFontFamily.poppinsFamily,
                 onPressed: () {
-                  _bloc.signIn();
-                  Navigator.pushNamed(context, RoutsNames.home);
+                  _bloc.signIn(context);
                 },
               ),
               SizedBox(

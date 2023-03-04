@@ -123,8 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   fontFamily: AppFontFamily.poppinsFamily,
                   onPressed: () {
                     if (_key.currentState!.validate()) {
-                      _bloc.register();
-                      // Navigator.pushNamed(context, RoutsNames.home);
+                      _bloc.register(context);
                     }
                   },
                 ),

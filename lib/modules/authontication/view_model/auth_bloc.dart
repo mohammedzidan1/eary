@@ -16,7 +16,7 @@ class AuthBloc extends Cubit<AuthState> {
   TextEditingController cPasswordController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
 
-  void register() async {
+  void register(context) async {
     UserModel userModel = UserModel(
       firstName: firstNameController.text,
       lastName: lastNameController.text,
@@ -28,15 +28,16 @@ class AuthBloc extends Cubit<AuthState> {
     userModel.docId = user.uid;
     if (FirebaseAuthUtil.isLogin) {
       await userModel.create(docId: user.uid);
+      Navigator.pushReplacementNamed(context, RoutsNames.home);
     }
   }
 
-  void signIn() async {
+  void signIn(context) async {
     await FirebaseAuthUtil()
         .signIn(email: emailController.text, password: passwordController.text);
     if (FirebaseAuthUtil.isLogin) {
       getUser();
-      // Navigator.pushReplacementNamed(context, RoutsNames.home);
+      Navigator.pushReplacementNamed(context, RoutsNames.home);
     }
   }
 
@@ -46,21 +47,17 @@ class AuthBloc extends Cubit<AuthState> {
       UserModel? userModel =
           await FirestoreModel.use<UserModel>().find(user.uid);
       emit(state.copyWith(userModel: userModel));
-      print("userF ${user}");
-      print("userModel ${userModel}");
     }
   }
 
   void signInWithGoogle(context) async {
     UserCredential? user = await FirebaseAuthUtil().signInWithGoogle();
-    print(user.user!.email);
 
     if (user.user != null) {
       UserModel userModel = UserModel.fromAuth(user.user!);
       if (!await userModel.exists(user.user!.uid)) {
         await userModel.create(docId: user.user!.uid);
       }
-      print('provider: ${user.user!.providerData.single.providerId}');
       await getUser();
       Navigator.pushReplacementNamed(context, RoutsNames.home);
 
