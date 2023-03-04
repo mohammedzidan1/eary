@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_model/firestore_model.dart';
 
 class UserModel extends FirestoreModel<UserModel> {
@@ -19,6 +20,10 @@ class UserModel extends FirestoreModel<UserModel> {
     userName = json['user_name'];
     email = json['email'];
     password = json['password'];
+  }
+  UserModel.fromAuth(User user) {
+    email = user.email;
+    userName = user.displayName;
   }
   @override
   ResponseBuilder<UserModel> get responseBuilder =>

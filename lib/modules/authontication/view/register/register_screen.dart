@@ -1,6 +1,7 @@
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
+import 'package:eary/modules/authontication/widgets/social_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +18,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final AuthBloc _bloc = AuthBloc();
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,30 +141,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: 24.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        'assets/images/google.png',
-                        height: 38.h,
-                        width: 40.0.w,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 36,
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        'assets/images/facebook.png',
-                        width: 47.w,
-                        height: 43.h,
-                      ),
-                    ),
-                  ],
-                ),
+                const SocialButtons(),
               ],
             ),
           ),

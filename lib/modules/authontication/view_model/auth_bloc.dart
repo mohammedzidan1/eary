@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:eary/core/app_routes/routes_mames.dart';
 import 'package:eary/core/utilites/firbase_auth_util.dart';
 import 'package:eary/modules/authontication/model/user.dart';
 import 'package:eary/modules/authontication/view_model/auth_state.dart';
@@ -48,5 +49,22 @@ class AuthBloc extends Cubit<AuthState> {
       print("userF ${user}");
       print("userModel ${userModel}");
     }
+  }
+
+  void signInWithGoogle(context) async {
+    UserCredential? user = await FirebaseAuthUtil().signInWithGoogle();
+    print(user.user!.email);
+
+    if (user.user != null) {
+      UserModel userModel = UserModel.fromAuth(user.user!);
+      if (!await userModel.exists(user.user!.uid)) {
+        await userModel.create(docId: user.user!.uid);
+      }
+      print('provider: ${user.user!.providerData.single.providerId}');
+      await getUser();
+      Navigator.pushReplacementNamed(context, RoutsNames.home);
+
+      // Modular.to.pushReplacementNamed(AppRoutes.mainHome);
+    } else {}
   }
 }
