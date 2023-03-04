@@ -64,4 +64,9 @@ class AuthBloc extends Cubit<AuthState> {
       // Modular.to.pushReplacementNamed(AppRoutes.mainHome);
     } else {}
   }
+
+  void logOut(context) async {
+    await FirebaseAuthUtil().logout();
+    Navigator.pushReplacementNamed(context, RoutsNames.authentication);
+  }
 }
