@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "652089580375",
+    "project_id": "eara-a2767",
+    "storage_bucket": "eara-a2767.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652089580375:android:e7b4d7b50c3d40e951bc12",
+        "android_client_info": {
+          "package_name": "com.example.eary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652089580375-ccqv6nveada9q9ctc2bejargdq1u6nmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrr4p7tbgcOfpohULWfZHWvFz0uBDDy0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652089580375-ccqv6nveada9q9ctc2bejargdq1u6nmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
