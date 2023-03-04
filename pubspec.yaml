@@ -40,6 +40,10 @@ dependencies:
   flutter_screenutil: ^5.6.1
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
+#  firebase
+  firebase_core: ^2.7.0
+  firebase_auth: ^4.2.9
+  google_sign_in: ^6.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
