@@ -60,8 +60,6 @@ class AuthBloc extends Cubit<AuthState> {
       }
       await getUser();
       Navigator.pushReplacementNamed(context, RoutsNames.home);
-
-      // Modular.to.pushReplacementNamed(AppRoutes.mainHome);
     } else {}
   }
 
