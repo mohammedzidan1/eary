@@ -52,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField(
                 controller: _bloc.emailController,
                 width: 320.w,
+                radius: 10,
                 height: 49.h,
                 hintText: "Username",
                 hintSize: 16.sp,
@@ -64,6 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _bloc.passwordController,
                 width: 320.w,
                 height: 49.h,
+                radius: 10,
                 hintText: "Password",
                 suffixIcon: Icons.visibility,
                 hintSize: 16.sp,
@@ -76,8 +78,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 33.h,
               ),
               DefaultButton(
+
                 height: 44.h,
                 width: 316.w,
+                color: Colors.white,
+                backGroundcolor:Color(0xff998BE0) ,
                 text: "Login",
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w500,

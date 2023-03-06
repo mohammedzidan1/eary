@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final double? hintSize;
   final double? width;
+  final double? radius;
   final double? height;
   final EdgeInsets? padding;
   final Color? color;
@@ -18,6 +19,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     this.suffixIcon,
+    this.radius,
   this.hintSize,
     this.padding ,
     this.hintText,
@@ -31,12 +33,12 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: padding,
+      padding:const EdgeInsets.only(left: 8.6,top: 8),
       width: width,
       height: height,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(AppSize.s20),
+        borderRadius: BorderRadius.circular(radius!),
       ),
       child: TextFormField(
 
@@ -46,11 +48,11 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           border: InputBorder.none,
-          labelStyle: const TextStyle(color: Colors.grey),
+
           prefixIconConstraints: const BoxConstraints(maxWidth: AppSize.s16),
           suffixIcon: Icon(suffixIcon),
           hintText: hintText,
-          hintStyle: TextStyle(fontSize: hintSize!.sp, color: Colors.black),
+          hintStyle: TextStyle(fontSize: hintSize!.sp, color:const Color (0xff525252)),
         ),
       ),
     );

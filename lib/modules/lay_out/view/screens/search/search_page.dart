@@ -3,14 +3,14 @@ import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SearchPageState();
+  State<StatefulWidget> createState() => _SearchScreenState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class _SearchScreenState extends State<SearchScreen> {
   String searchValue = '';
 
   @override

@@ -18,7 +18,7 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
         shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0))),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
         textColor: Colors.white,
         height: height,
         minWidth: width,

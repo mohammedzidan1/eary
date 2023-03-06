@@ -48,7 +48,7 @@ dependencies:
   firebase_auth: ^4.2.9
   google_sign_in: ^6.0.2
   firestore_model: ^0.9.10
-
+  image_picker: ^0.8.6+4
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -97,6 +97,14 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Black.ttf
+    - family: Inconsolata
+      fonts:
+        - asset: assets/fonts/Inconsolata-Medium.ttf
+    - family: Inter
+      fonts:
+        #- asset: assets/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
+
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

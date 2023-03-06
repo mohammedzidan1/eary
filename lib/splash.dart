@@ -1,8 +1,9 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:eary/core/utilites/firbase_auth_util.dart';
-import 'package:eary/modules/authontication/view/on_bording/on_boarding_screen.dart';
-import 'package:eary/modules/home/view/home_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'modules/lay_out/view/screens/home/home_screen.dart';
+import 'on_boarding/on_boarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
