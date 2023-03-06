@@ -179,7 +179,7 @@ class ProfileScreen extends StatelessWidget {
                             width: 316.w,
                             color: Colors.white,
                             backGroundcolor: Color(0xff998BE0),
-                            text: "save",
+                            text: "Save",
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w500,
                             fontFamily: AppFontFamily.poppinsFamily,
