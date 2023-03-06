@@ -171,6 +171,20 @@ class ProfileScreen extends StatelessWidget {
                             hintSize: 16.sp,
                             color: Colors.white,
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          DefaultButton(
+                            height: 44.h,
+                            width: 316.w,
+                            color: Colors.white,
+                            backGroundcolor: Color(0xff998BE0),
+                            text: "save",
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: AppFontFamily.poppinsFamily,
+                            onPressed: () {},
+                          ),
                         ],
                       ),
                     );
