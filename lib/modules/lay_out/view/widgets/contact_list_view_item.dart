@@ -12,7 +12,7 @@ class ContactItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 13.5.h, left: 31.w, right: 27.h),
+      margin: EdgeInsets.only(top: 13.5.h, left: 12.w, right: 27.h),
       padding: const EdgeInsets.all(8),
       width: 344.w,
       height: 64.h,

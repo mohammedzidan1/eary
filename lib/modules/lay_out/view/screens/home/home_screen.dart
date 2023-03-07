@@ -1,5 +1,4 @@
 import 'package:eary/core/utilites/app_images.dart';
-import 'package:eary/core/widgets/custom_text_form.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,38 +40,60 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: Icon(
-                        Icons.menu,
-                        size: 40.sp,
-                        color: Colors.white,
-                      )),
+                  Expanded(
+                    flex: 4,
+                    child: IconButton(
+                        onPressed: () {
+                          _scaffoldKey.currentState?.openDrawer();
+                        },
+                        icon: Icon(
+                          Icons.menu,
+                          size: 40.sp,
+                          color: Colors.white,
+                        )),
+                  ),
                   SizedBox(
                     width: 1.6.w,
                   ),
-                  CustomTextField(
-                    // controller: .passwordController,
-                    width: 251.5.w,
-                    height: 33.h,
-                    radius: 15.r,
-                    hintText: "Search",
-                    hintSize: 16.sp,
-
-                    color: Colors.white,
+                  Expanded(
+                    flex: 18,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                      child: TextFormField(
+                        onChanged: (val) {
+                          setState(() {
+                            searchValue = val;
+                          });
+                        },
+                        decoration: InputDecoration(
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 6, horizontal: 8),
+                            hintText: 'Search',
+                            hintStyle: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: AppFontFamily.inter),
+                            filled: true,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            fillColor: Colors.white),
+                      ),
+                    ),
                   ),
                   SizedBox(
-                    width: 6.88.w,
+                    width: 5.w,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, RoutsNames.profile);
-                    },
-                    child: CircleAvatar(
-                      radius: 20.r,
-                      child: Image.asset(AppImages.user),
+                  Expanded(
+                    flex: 3,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RoutsNames.profile);
+                      },
+                      child: CircleAvatar(
+                        radius: 20.r,
+                        child: Image.asset(AppImages.user),
+                      ),
                     ),
                   )
                 ],
@@ -90,14 +111,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: ModelGetBuilder<UserModel>(builder: (context, snapshot) {
-                return ListView.builder(
-                    itemCount: snapshot.data?.length,
-                    itemBuilder: (context, index) {
-                      List<UserModel?> user = snapshot.data!;
-                      return ContactItem(
-                        model: user[index],
-                      );
-                    });
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 12.0, horizontal: 12),
+                  child: Card(
+                    color: const Color(0xffF0F9FF),
+                    child: ListView.builder(
+                        itemCount: snapshot.data?.length,
+                        itemBuilder: (context, index) {
+                          List<UserModel?> user = snapshot.data!;
+                          String? userName = snapshot.data?[index]?.userName;
+                          if (userName!.contains(searchValue ?? '')) {
+                            return ContactItem(
+                              model: user[index],
+                            );
+                          } else {
+                            return const SizedBox();
+                          }
+                        }),
+                  ),
+                );
               }),
             ),
           ],
