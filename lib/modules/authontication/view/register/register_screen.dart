@@ -41,32 +41,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: 19.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomTextField(
-                      controller: _bloc.firstNameController,
-                      width: 157.w,
-                      height: 49.h,
-                      radius: 10.0,
-                      hintSize: 16.sp,
-                      onChanged: (){},
-                      hintText: "FirstName",
-                      color: Colors.white,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    CustomTextField(
-                      controller: _bloc.lastNameController,
-                      width: 157.w,
-                      height: 49.h,
-                      onChanged: (){},
-                      hintText: "LastName",
-                      hintSize: 16.sp,
-                      color: Colors.white,
-                    ),
-                  ],
+                SizedBox(
+                  width: 411.w,
+                  height: 60.h,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      CustomTextField(
+                        controller: _bloc.firstNameController,
+                        width: 157.w,
+                        height: 49.h,
+                        radius: 10.0,
+                        hintSize: 16.sp,
+                        onChanged: () {},
+                        hintText: "FirstName",
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      CustomTextField(
+                        controller: _bloc.lastNameController,
+                        width: 157.w,
+                        height: 49.h,
+                        radius: 10.0,
+                        hintSize: 16.sp,
+                        onChanged: () {},
+                        hintText: "LastName",
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 15.h,
@@ -75,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: _bloc.userNameController,
                   width: 320.w,
                   height: 49.h,
-                  onChanged: (){},
+                  onChanged: () {},
                   hintText: "Username",
                   hintSize: 16.sp,
                   radius: 10,
@@ -87,7 +93,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomTextField(
                   controller: _bloc.emailController,
                   width: 320.w,
-                  onChanged: (){},
+                  onChanged: () {},
                   height: 49.h,
                   radius: 10,
                   hintText: "Email",
@@ -102,7 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: 320.w,
                   radius: 10,
                   height: 49.h,
-                  onChanged: (){},
+                  onChanged: () {},
                   hintText: "Password",
                   suffixIcon: Icons.visibility,
                   hintSize: 16.sp,
@@ -116,7 +122,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: 320.w,
                   radius: 10,
                   height: 49.h,
-                  onChanged: (){},
+                  onChanged: () {},
                   hintText: "Confirm Password",
                   suffixIcon: Icons.visibility,
                   hintSize: 16.sp,
@@ -131,6 +137,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: "Register",
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                  backGroundcolor: const Color(0xff998BE0),
                   fontFamily: AppFontFamily.poppinsFamily,
                   onPressed: () {
                     if (_key.currentState!.validate()) {
