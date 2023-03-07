@@ -2,6 +2,7 @@ import 'package:eary/core/app_routes/routes_mames.dart';
 import 'package:eary/core/utilites/app_images.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
+import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -84,7 +85,7 @@ class CustomDrawer extends StatelessWidget {
                             ),
                             MaterialButton(
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                AuthBloc().logOut(context);
                               },
                               child: const Text("Ok"),
                             ),

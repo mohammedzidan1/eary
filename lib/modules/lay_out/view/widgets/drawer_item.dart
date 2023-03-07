@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DrawerItem extends StatelessWidget {
   final String? image, text;
   final double? imageHeight, imageWidth;
-  final Function? onTap;
+  final VoidCallback? onTap;
 
   const DrawerItem(
       {Key? key,
@@ -20,9 +20,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        onTap!()!;
-      },
+      onTap: onTap,
       child: ListTile(
         leading: Image.asset(
           image!,
