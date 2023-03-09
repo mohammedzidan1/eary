@@ -23,7 +23,6 @@ class AuthBloc extends Cubit<AuthState> {
       userName: userNameController.text,
       email: emailController.text,
       password: passwordController.text,
-
     );
     User user = await FirebaseAuthUtil().register(
         email: emailController.text, password: passwordController.text);
@@ -46,9 +45,7 @@ class AuthBloc extends Cubit<AuthState> {
   Future<void> getUser() async {
     emit(state.copyWith(isLoading: true));
     User? user = FirebaseAuth.instance.currentUser;
-    print(user?.email);
     if (user != null) {
-      print('iiiii');
       UserModel? userModel =
           await FirestoreModel.use<UserModel>().find(user.uid);
       emit(state.copyWith(userModel: userModel, isLoading: false));

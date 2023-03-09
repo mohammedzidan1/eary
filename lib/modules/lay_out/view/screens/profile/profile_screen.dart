@@ -14,7 +14,7 @@ import '../../../../../core/widgets/custom_text_form.dart';
 import '../../../../../core/widgets/default_button.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: <Widget>[
-                                 CustomText(
+                                CustomText(
                                   text: AppStrings.editProfile,
                                   color: Colors.black,
                                   fontFamily: AppFontFamily.fingerPaintFamily,

@@ -1,8 +1,9 @@
-import 'package:eary/modules/lay_out/view/screens/contact_profile/contact_profile_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../core/app_routes/routes_genirator.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               useMaterial3: true,
             ),
-          //  onGenerateRoute: AppRouts().genirateRoute,
-home: ContactProfileScreen(),
+            onGenerateRoute: AppRouts().genirateRoute,
+// home: ContactProfileScreen(),
           );
         });
   }
