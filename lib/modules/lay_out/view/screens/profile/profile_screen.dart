@@ -49,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         onLoading: () => const Center(
           child: CircularProgressIndicator(),
         ),
-        builder: (context, snapshot) {
+        onSuccess: (snapshot) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 21.91.h,
               ),
-              containerBody(snapshot.data),
+              containerBody(snapshot),
               const SizedBox(
                 height: 70,
               ),
