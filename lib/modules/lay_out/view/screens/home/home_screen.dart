@@ -1,3 +1,4 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/app_images.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 6, horizontal: 8),
-                            hintText: 'Search',
+                            hintText:AppStrings.search,
                             hintStyle: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w600,
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: EdgeInsets.only(top: 22.5.h, left: 32.w, right: 27.h),
               child: CustomText(
-                text: "Contacts",
+                text: AppStrings.contacts,
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w700,
                 fontFamily: AppFontFamily.inter,

@@ -1,3 +1,4 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/modules/authontication/model/user.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +22,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   ImagePicker picker = ImagePicker();
+
   @override
   void initState() {
     AuthBloc().getUser();
@@ -66,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Padding(
                 padding: EdgeInsets.only(top: 21.91.h, left: 36.w),
                 child: CustomText(
-                  text: "Info",
+                  text: AppStrings.info,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w700,
                   fontFamily: AppFontFamily.inter,
@@ -86,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: 316.w,
                   color: Colors.white,
                   backGroundcolor: const Color(0xff998BE0),
-                  text: "Edit Profile",
+                  text: AppStrings.editProfile,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w400,
                   fontFamily: AppFontFamily.poppinsFamily,
@@ -106,8 +108,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: <Widget>[
-                                const CustomText(
-                                  text: "Edit profile",
+                                 CustomText(
+                                  text: AppStrings.editProfile,
                                   color: Colors.black,
                                   fontFamily: AppFontFamily.fingerPaintFamily,
                                   fontSize: 20,
@@ -150,7 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 320.w,
                                   height: 49.h,
                                   radius: 10,
-                                  hintText: " Change userName",
+                                  hintText: AppStrings.changeUserName,
 
                                   hintSize: 16.sp,
                                   color: Colors.white,
@@ -163,7 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 320.w,
                                   height: 49.h,
                                   radius: 10,
-                                  hintText: " Change Email",
+                                  hintText: AppStrings.changeEmail,
 
                                   hintSize: 16.sp,
                                   color: Colors.white,
@@ -176,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 320.w,
                                   height: 49.h,
                                   radius: 10,
-                                  hintText: " Change Password",
+                                  hintText: AppStrings.confirmPassword,
                                   suffixIcon: Icons.visibility,
                                   hintSize: 16.sp,
                                   color: Colors.white,
@@ -184,16 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 const SizedBox(
                                   height: 8,
                                 ),
-                                CustomTextField(
-                                  // controller: _bloc.passwordController,
-                                  width: 320.w,
-                                  height: 49.h,
-                                  radius: 10,
-                                  hintText: " Change Gender",
-                                  hintSize: 16.sp,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 DefaultButton(
@@ -201,7 +194,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   width: 316.w,
                                   color: Colors.white,
                                   backGroundcolor: Color(0xff998BE0),
-                                  text: "Save",
+                                  text: AppStrings.save,
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: AppFontFamily.poppinsFamily,

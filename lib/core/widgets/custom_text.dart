@@ -1,4 +1,3 @@
-import 'package:eary/core/utilites/font_manager.dart';
 import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {

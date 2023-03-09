@@ -1,3 +1,5 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
+import 'package:eary/core/utilites/app_images.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/default_button.dart';
 import 'package:flutter/material.dart';
@@ -20,19 +22,19 @@ class AuthenticationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/logo.png",
+              AppImages.logo,
               height: 148.h,
               width: 148.w,
             ),
             CustomText(
-              text: "EARY",
+              text: AppStrings.eary,
               fontSize: 32.sp,
               fontFamily: AppFontFamily.fingerPaintFamily,
               fontWeight: FontWeight.w400,
               color: const Color(0xff998BE0),
             ),
             CustomText(
-              text: "No communication barrier anymore! ",
+              text: AppStrings.noCommunicationBarrierAnymore,
               color: Color(0xff525252C2),
               textAlign: TextAlign.center,
               fontSize: 24.sp,
@@ -44,7 +46,7 @@ class AuthenticationScreen extends StatelessWidget {
             DefaultButton(
               height: 44.h,
               width: 307.w,
-              text: "Register",
+              text:AppStrings.register,
               color: Colors.white,
               fontSize: 17.sp,
               fontWeight: FontWeight.w500,
@@ -65,7 +67,7 @@ class AuthenticationScreen extends StatelessWidget {
               fontFamily: AppFontFamily.poppinsFamily,
               color: const Color(0xff998CDE),
               backGroundcolor: const Color(0xffffffff),
-              text: "login",
+              text:AppStrings.login,
               onPressed: () {
                 Navigator.pushNamed(context, RoutsNames.login);
               },

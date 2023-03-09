@@ -1,4 +1,5 @@
 import 'package:eary/core/app_routes/routes_mames.dart';
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/app_images.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
@@ -25,14 +26,14 @@ class CustomDrawer extends StatelessWidget {
                 fontSize: 32.sp,
                 fontWeight: FontWeight.w400,
                 fontFamily: AppFontFamily.fingerPaintFamily,
-                text: "EARY",
+                text: AppStrings.eary,
                 color: Color(0xff525252),
               ),
               SizedBox(
                 height: 29.h,
               ),
               DrawerItem(
-                text: "Your profile",
+                text: AppStrings.yourProfile,
                 image: AppImages.editProfile,
                 imageHeight: 17,
                 imageWidth: 17.86,
@@ -41,19 +42,19 @@ class CustomDrawer extends StatelessWidget {
                 },
               ),
               DrawerItem(
-                  text: "Languages",
+                  text: AppStrings.languages,
                   image: AppImages.languages,
                   imageHeight: 20,
                   imageWidth: 20,
                   onTap: () {}),
               DrawerItem(
-                  text: "Themes",
+                  text: AppStrings.theme,
                   image: AppImages.themes,
                   imageHeight: 18,
                   imageWidth: 18,
                   onTap: () {}),
               DrawerItem(
-                  text: "Settings",
+                  text: AppStrings.settings,
                   image: AppImages.settings,
                   imageHeight: 20,
                   imageWidth: 20,
@@ -61,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
                     Navigator.pushNamed(context, RoutsNames.settings);
                   }),
               DrawerItem(
-                  text: "Logout",
+                  text: AppStrings.logOut,
                   image: AppImages.logOut,
                   imageHeight: 18,
                   imageWidth: 18,
@@ -71,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: CustomText(
-                            text: "Are you sure log out !!",
+                            text: AppStrings.areYouSureLogout,
                             fontFamily: AppFontFamily.fingerPaintFamily,
                             fontSize: 20.h,
                             color: Colors.black,
@@ -81,13 +82,13 @@ class CustomDrawer extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text("cancel"),
+                              child:  Text(AppStrings.cancel),
                             ),
                             MaterialButton(
                               onPressed: () {
                                 AuthBloc().logOut(context);
                               },
-                              child: const Text("Ok"),
+                              child:  Text(AppStrings.ok),
                             ),
                           ],
                         );

@@ -1,3 +1,4 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
@@ -17,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final AuthBloc _bloc = AuthBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomText(
-                text: "Hello Again!",
+                text: AppStrings.helloAgain,
                 fontSize: 32.sp,
                 fontWeight: FontWeight.w500,
                 color: Color(0xff525252),
@@ -38,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 17.h,
               ),
               CustomText(
-                text: "Welcome back you’ve been missed",
+                text: AppStrings.welcomebackyouVebeenMissed,
                 fontSize: 22.sp,
                 fontWeight: FontWeight.w500,
                 color: Color(0xff525252),
@@ -54,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 320.w,
                 radius: 10,
                 height: 49.h,
-                hintText: "Username",
+                hintText: AppStrings.username,
                 hintSize: 16.sp,
                 color: Colors.white,
               ),
@@ -66,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 320.w,
                 height: 49.h,
                 radius: 10,
-                hintText: "Password",
+                hintText: AppStrings.password,
                 suffixIcon: Icons.visibility,
                 hintSize: 16.sp,
                 color: Colors.white,
@@ -78,12 +80,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 33.h,
               ),
               DefaultButton(
-
                 height: 44.h,
                 width: 316.w,
                 color: Colors.white,
-                backGroundcolor:Color(0xff998BE0) ,
-                text: "Login",
+                backGroundcolor: Color(0xff998BE0),
+                text: AppStrings.login,
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w500,
                 fontFamily: AppFontFamily.poppinsFamily,
@@ -95,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 27.h,
               ),
               CustomText(
-                text: "or continue with",
+                text: AppStrings.orContinueWith,
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
                 fontFamily: AppFontFamily.poppinsFamily,

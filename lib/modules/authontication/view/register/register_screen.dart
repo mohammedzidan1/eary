@@ -1,3 +1,4 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
@@ -33,7 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomText(
-                  text: "Create Account",
+                  text: AppStrings.createAccount,
                   fontSize: 32.sp,
                   fontWeight: FontWeight.w500,
                   color: const Color(0xff525252),
@@ -55,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         radius: 10.0,
                         hintSize: 16.sp,
                         onChanged: () {},
-                        hintText: "FirstName",
+                        hintText: AppStrings.firstName,
                         color: Colors.white,
                       ),
                       const SizedBox(
@@ -68,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         radius: 10.0,
                         hintSize: 16.sp,
                         onChanged: () {},
-                        hintText: "LastName",
+                        hintText: AppStrings.lastName,
                         color: Colors.white,
                       ),
                     ],
@@ -82,7 +83,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   width: 320.w,
                   height: 49.h,
                   onChanged: () {},
-                  hintText: "Username",
+                  hintText:AppStrings.username,
                   hintSize: 16.sp,
                   radius: 10,
                   color: Colors.white,
@@ -96,7 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onChanged: () {},
                   height: 49.h,
                   radius: 10,
-                  hintText: "Email",
+                  hintText: AppStrings.email,
                   hintSize: 16.sp,
                   color: Colors.white,
                 ),
@@ -109,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   radius: 10,
                   height: 49.h,
                   onChanged: () {},
-                  hintText: "Password",
+                  hintText: AppStrings.password,
                   suffixIcon: Icons.visibility,
                   hintSize: 16.sp,
                   color: Colors.white,
@@ -123,7 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   radius: 10,
                   height: 49.h,
                   onChanged: () {},
-                  hintText: "Confirm Password",
+                  hintText: AppStrings.confirmPassword,
                   suffixIcon: Icons.visibility,
                   hintSize: 16.sp,
                   color: Colors.white,
@@ -134,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 DefaultButton(
                   height: 44.h,
                   width: 316.w,
-                  text: "Register",
+                  text: AppStrings.register,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
@@ -150,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 27.h,
                 ),
                 CustomText(
-                  text: "or sign up with",
+                  text:AppStrings.orSignUpWith,
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w500,
                   fontFamily: AppFontFamily.poppinsFamily,

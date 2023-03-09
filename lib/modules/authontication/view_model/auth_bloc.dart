@@ -22,6 +22,8 @@ class AuthBloc extends Cubit<AuthState> {
       lastName: lastNameController.text,
       userName: userNameController.text,
       email: emailController.text,
+      password: passwordController.text,
+
     );
     User user = await FirebaseAuthUtil().register(
         email: emailController.text, password: passwordController.text);

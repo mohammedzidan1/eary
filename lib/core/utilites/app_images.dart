@@ -19,5 +19,9 @@ class AppImages {
   static const String user = "assets/images/user.png";
   static const String userImage = "assets/images/user_img.png";
   static const String camera = "assets/images/camera.png";
+  static const String contact1 = "assets/images/contact1.png";
+  static const String contact2 = "assets/images/contact2.png";
+  static const String contact3 = "assets/images/contact3.png";
+  static const String contact4 = "assets/images/contact4.png";
 
 }

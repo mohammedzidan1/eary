@@ -1,3 +1,4 @@
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/modules/authontication/model/user.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _SearchScreenState extends State<SearchScreen> {
         // query: (q) => q.where('displayName', isLessThanOrEqualTo: searchValue),
         builder: (_, snapshot) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Search')),
+        appBar: AppBar(title:  Text(AppStrings.search)),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -35,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     // print(userModel.toMap);
                   });
                 },
-                decoration: const InputDecoration(hintText: 'Search'),
+                decoration:  InputDecoration(hintText: AppStrings.search),
               ),
               SizedBox(
                 height: 8.h,

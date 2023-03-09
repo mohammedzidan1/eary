@@ -1,5 +1,5 @@
 import 'package:eary/core/app_routes/routes_mames.dart';
-import 'package:eary/core/config/localization/languages/english_strings.dart';
+import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/app_images.dart';
 import 'package:eary/on_boarding/model.dart';
 import 'package:eary/on_boarding/on_boarding_item.dart';
