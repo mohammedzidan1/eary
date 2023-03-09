@@ -23,5 +23,7 @@ class AppImages {
   static const String contact2 = "assets/images/contact2.png";
   static const String contact3 = "assets/images/contact3.png";
   static const String contact4 = "assets/images/contact4.png";
+  static const String missingCall = "assets/images/missing_call.png";
+  static const String outGoingCall = "assets/images/out_going_call.png";
 
 }

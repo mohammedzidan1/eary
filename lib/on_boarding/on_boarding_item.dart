@@ -1,4 +1,4 @@
-import 'package:eary/core/utilites/app_images.dart';
+
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:eary/on_boarding/model.dart';
 import 'package:flutter/material.dart';
