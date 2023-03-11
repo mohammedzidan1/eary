@@ -77,7 +77,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     backGroundcolor: const Color(0xffCED1EE),
                     height: 44.h,
                     width: 135.w,
-                    text:_pageIndex==2 ?"Start":"Skip",
+                    text:_pageIndex==2 ?AppStrings.start:AppStrings.skip,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
                     color: Color(0xff998CDE),

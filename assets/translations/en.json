@@ -35,5 +35,7 @@
   "confirmPassword": "Confirm Password",
   "orSignUpWith": "or sign up with",
   "contacts": "Contacts",
-  "yourProfile": "Your Profile"
+  "yourProfile": "Your Profile",
+  "skip": "Skip",
+  "start": "Start"
 }
