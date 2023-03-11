@@ -54,6 +54,7 @@ dependencies:
   form_builder_validators: ^8.5.0
   flutter_keyboard_visibility: ^5.4.0
   firebase_storage: ^11.0.15
+  hive_flutter: ^1.1.0
 
 
 dev_dependencies:

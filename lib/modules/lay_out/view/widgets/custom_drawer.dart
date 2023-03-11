@@ -4,6 +4,8 @@ import 'package:eary/core/utilites/app_images.dart';
 import 'package:eary/core/utilites/font_manager.dart';
 import 'package:eary/core/widgets/custom_text.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
+import 'package:eary/modules/lay_out/view/widgets/settings_bottom_sheet.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +18,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
-        backgroundColor: const Color(0xffF0F9FF),
+        // backgroundColor: const Color(0xffF0F9FF),
         child: Container(
           margin: const EdgeInsets.only(top: 10, left: 21),
           child: Column(
@@ -26,7 +28,7 @@ class CustomDrawer extends StatelessWidget {
                 fontSize: 32.sp,
                 fontWeight: FontWeight.w400,
                 fontFamily: AppFontFamily.fingerPaintFamily,
-                text: AppStrings.eary,
+                text: "eary".tr(),
                 color: Color(0xff525252),
               ),
               SizedBox(
@@ -41,25 +43,32 @@ class CustomDrawer extends StatelessWidget {
                   Navigator.pushNamed(context, RoutsNames.profile);
                 },
               ),
-              DrawerItem(
-                  text: AppStrings.languages,
-                  image: AppImages.languages,
-                  imageHeight: 20,
-                  imageWidth: 20,
-                  onTap: () {}),
-              DrawerItem(
-                  text: AppStrings.theme,
-                  image: AppImages.themes,
-                  imageHeight: 18,
-                  imageWidth: 18,
-                  onTap: () {}),
+              // DrawerItem(
+              //     text: AppStrings.languages,
+              //     image: AppImages.languages,
+              //     imageHeight: 20,
+              //     imageWidth: 20,
+              //     onTap: () {}),
+              // DrawerItem(
+              //     text: AppStrings.theme,
+              //     image: AppImages.themes,
+              //     imageHeight: 18,
+              //     imageWidth: 18,
+              //     onTap: () {}),
               DrawerItem(
                   text: AppStrings.settings,
                   image: AppImages.settings,
                   imageHeight: 20,
                   imageWidth: 20,
                   onTap: () {
-                    Navigator.pushNamed(context, RoutsNames.settings);
+                    showModalBottomSheet(
+                      context: context,
+                      elevation: 10,
+                      builder: (BuildContext context) {
+                        return const SettingsBottomSheet();
+                      },
+                    );
+                    // Navigator.pushNamed(context, RoutsNames.settings);
                   }),
               DrawerItem(
                   text: AppStrings.logOut,
@@ -82,13 +91,13 @@ class CustomDrawer extends StatelessWidget {
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child:  Text(AppStrings.cancel),
+                              child: Text(AppStrings.cancel),
                             ),
                             MaterialButton(
                               onPressed: () {
                                 AuthBloc().logOut(context);
                               },
-                              child:  Text(AppStrings.ok),
+                              child: Text(AppStrings.ok),
                             ),
                           ],
                         );

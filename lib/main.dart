@@ -1,3 +1,4 @@
+import 'package:eary/core/config/app_storage.dart';
 import 'package:eary/firebase_options.dart';
 import 'package:eary/modules/authontication/model/user.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -9,7 +10,7 @@ import 'app/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await AppStorage.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -21,7 +22,8 @@ void main() async {
     EasyLocalization(
       path: "assets/translations",
       supportedLocales: const [Locale('en'), Locale('ar')],
-      startLocale: const Locale('en'),
+      startLocale: Locale(AppStorage.getLocale(), ''),
+      fallbackLocale: const Locale('ar'),
       useOnlyLangCode: true,
       child: const MyApp(),
     ),
