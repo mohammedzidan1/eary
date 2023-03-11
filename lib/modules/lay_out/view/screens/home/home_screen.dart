@@ -1,5 +1,6 @@
 import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/core/utilites/app_images.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 6, horizontal: 8),
-                            hintText:AppStrings.search,
+                            hintText: AppStrings.search,
                             hintStyle: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w600,
@@ -82,21 +83,36 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, RoutsNames.profile);
-                      },
-                      child: CircleAvatar(
-                        radius: 20.r,
-                        child: Image.asset(AppImages.user),
-                      ),
-                    ),
-                  )
+                  ModelStreamSingleBuilder<UserModel>(
+                      docId: FirebaseAuth.instance.currentUser?.uid,
+                      onSuccess: (user) {
+                        return Expanded(
+                          flex: 4,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 5.0),
+                            child: GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, RoutsNames.profile);
+                                },
+                                child: Container(
+                                  height: 40,
+                                  width: 40,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                      shape: BoxShape.circle),
+                                  child: user?.imageUrl == null
+                                      ? Image.asset(
+                                          AppImages.userImage,
+                                          fit: BoxFit.fitWidth,
+                                        )
+                                      : Image.network(user!.imageUrl!,
+                                          fit: BoxFit.cover),
+                                )),
+                          ),
+                        );
+                      })
                 ],
               ),
             ),
@@ -111,28 +127,31 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              child: ModelGetBuilder<UserModel>(builder: (context, snapshot) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 12.0, horizontal: 12),
-                  child: Card(
-                    color: const Color(0xffF0F9FF),
-                    child: ListView.builder(
-                        itemCount: snapshot.data?.length,
-                        itemBuilder: (context, index) {
-                          List<UserModel?> user = snapshot.data!;
-                          String? userName = snapshot.data?[index]?.userName;
-                          if (userName!.contains(searchValue ?? '')) {
-                            return ContactItem(
-                              model: user[index],
-                            );
-                          } else {
-                            return const SizedBox();
-                          }
-                        }),
-                  ),
-                );
-              }),
+              child: ModelStreamGetBuilder<UserModel>(
+                  onLoading: () =>
+                      const Center(child: CircularProgressIndicator()),
+                  onSuccess: (users) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12.0, horizontal: 12),
+                      child: Card(
+                        color: const Color(0xffF0F9FF),
+                        child: ListView.builder(
+                            itemCount: users?.length,
+                            itemBuilder: (context, index) {
+                              List<UserModel?> user = users!;
+                              String? userName = users[index]?.userName;
+                              if (userName!.contains(searchValue ?? '')) {
+                                return ContactItem(
+                                  user: user[index],
+                                );
+                              } else {
+                                return const SizedBox();
+                              }
+                            }),
+                      ),
+                    );
+                  }),
             ),
           ],
         ),
@@ -140,12 +159,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-// body: ModelGetBuilder<UserModel>(builder: (context, snapshot) {
-// return ListView.builder(
-// itemCount: snapshot.data?.length,
-// itemBuilder: (_, index) {
-// UserModel? user = snapshot.data?[index];
-// return Text(user?.userName ?? '');
-// });
-// }),

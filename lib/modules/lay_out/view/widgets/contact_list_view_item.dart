@@ -6,11 +6,12 @@ import '../../../../core/utilites/font_manager.dart';
 import '../../../../core/widgets/custom_text.dart';
 
 class ContactItem extends StatelessWidget {
-  const ContactItem({Key? key, this.model}) : super(key: key);
-  final UserModel? model;
+  ContactItem({Key? key, this.user}) : super(key: key);
+  final UserModel? user;
 
   @override
   Widget build(BuildContext context) {
+    Color color = (colors..shuffle()).last;
     return Container(
       margin: EdgeInsets.only(top: 13.5.h, left: 12.w, right: 27.h),
       padding: const EdgeInsets.all(8),
@@ -21,10 +22,10 @@ class ContactItem extends StatelessWidget {
           color: const Color(0xffCED1EE).withOpacity(.65)),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: Colors.yellow,
+          backgroundColor: color,
           radius: 20.r,
           child: CustomText(
-            text: "e",
+            text: user?.userName?[0],
             color: Colors.white,
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
@@ -32,7 +33,7 @@ class ContactItem extends StatelessWidget {
           ),
         ),
         title: CustomText(
-          text: model!.userName!,
+          text: user!.userName!,
           color: const Color(0xff525252),
           fontSize: 16.sp,
           fontFamily: AppFontFamily.inter,
@@ -40,4 +41,14 @@ class ContactItem extends StatelessWidget {
       ),
     );
   }
+
+  final List<Color> colors = [
+    Colors.blue,
+    Colors.orange,
+    Colors.pink,
+    Colors.purple,
+    Colors.deepPurpleAccent,
+    Colors.deepOrange,
+    Colors.lightBlue
+  ];
 }

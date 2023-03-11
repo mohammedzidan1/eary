@@ -52,6 +52,8 @@ dependencies:
   firestore_model: ^0.9.10
   flutter_form_builder: ^7.8.0
   form_builder_validators: ^8.5.0
+  flutter_keyboard_visibility: ^5.4.0
+  firebase_storage: ^11.0.15
 
 
 dev_dependencies:

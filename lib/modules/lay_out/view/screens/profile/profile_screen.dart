@@ -1,16 +1,15 @@
 import 'package:eary/core/config/localization/languages/appStrings_strings.dart';
 import 'package:eary/modules/authontication/model/user.dart';
 import 'package:eary/modules/authontication/view_model/auth_bloc.dart';
+import 'package:eary/modules/lay_out/view/widgets/edit_profile_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_model/firestore_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/utilites/app_images.dart';
 import '../../../../../core/utilites/font_manager.dart';
 import '../../../../../core/widgets/custom_text.dart';
-import '../../../../../core/widgets/custom_text_form.dart';
 import '../../../../../core/widgets/default_button.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -21,8 +20,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  ImagePicker picker = ImagePicker();
-
   @override
   void initState() {
     AuthBloc().getUser();
@@ -49,19 +46,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
         onLoading: () => const Center(
           child: CircularProgressIndicator(),
         ),
-        onSuccess: (snapshot) {
+        onSuccess: (user) {
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 38.h),
                 child: Center(
-                  child: CircleAvatar(
-                    radius: 60.r,
-                    child: Image.asset(
-                      AppImages.userImage,
-                      fit: BoxFit.fitWidth,
-                    ),
+                  child: Container(
+                    height: 120,
+                    width: 120,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: user?.imageUrl == null
+                        ? Image.asset(
+                            AppImages.userImage,
+                            fit: BoxFit.fitWidth,
+                          )
+                        : Image.network(user!.imageUrl!, fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -78,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 21.91.h,
               ),
-              containerBody(snapshot),
+              containerBody(user),
               const SizedBox(
                 height: 70,
               ),
@@ -98,112 +100,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       barrierColor: const Color(0xffF0F9FF),
                       backgroundColor: const Color(0xffE4EBF9),
                       elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
+                      // shape: RoundedRectangleBorder(
+                      //   borderRadius: BorderRadius.circular(20.0),
+                      // ),
                       builder: (BuildContext context) {
-                        return Container(
-                          margin: const EdgeInsets.all(10),
-                          height: MediaQuery.of(context).size.height,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: <Widget>[
-                                CustomText(
-                                  text: AppStrings.editProfile,
-                                  color: Colors.black,
-                                  fontFamily: AppFontFamily.fingerPaintFamily,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 60.r,
-                                      child: Image.asset(
-                                        AppImages.userImage,
-                                        fit: BoxFit.fitWidth,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () async {
-                                        XFile? image = await picker.pickImage(
-                                            source: ImageSource.gallery);
-                                      },
-                                      child: CircleAvatar(
-                                        radius: 25.r,
-                                        child: Image.asset(
-                                          AppImages.camera,
-                                          height: 18.2.h,
-                                          width: 20.w,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                CustomTextField(
-                                  // controller: _bloc.passwordController,
-                                  width: 320.w,
-                                  height: 49.h,
-                                  radius: 10,
-                                  hintText: AppStrings.changeUserName,
-
-                                  hintSize: 16.sp,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                CustomTextField(
-                                  // controller: _bloc.passwordController,
-                                  width: 320.w,
-                                  height: 49.h,
-                                  radius: 10,
-                                  hintText: AppStrings.changeEmail,
-
-                                  hintSize: 16.sp,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                CustomTextField(
-                                  // controller: _bloc.passwordController,
-                                  width: 320.w,
-                                  height: 49.h,
-                                  radius: 10,
-                                  hintText: AppStrings.confirmPassword,
-                                  suffixIcon: Icons.visibility,
-                                  hintSize: 16.sp,
-                                  color: Colors.white,
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                DefaultButton(
-                                  height: 44.h,
-                                  width: 316.w,
-                                  color: Colors.white,
-                                  backGroundcolor: Color(0xff998BE0),
-                                  text: AppStrings.save,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: AppFontFamily.poppinsFamily,
-                                  onPressed: () {},
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                        return EditProfileWidget(user: user);
                       },
                     );
                   },

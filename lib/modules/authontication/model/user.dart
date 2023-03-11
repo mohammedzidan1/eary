@@ -7,12 +7,14 @@ class UserModel extends FirestoreModel<UserModel> {
   String? userName;
   String? email;
   String? password;
+  String? imageUrl;
   UserModel({
     this.email,
     this.userName,
     this.firstName,
     this.lastName,
     this.password,
+    this.imageUrl,
   });
   UserModel.fromJson(Map<String, dynamic> json) {
     lastName = json['last_name'];
@@ -20,6 +22,7 @@ class UserModel extends FirestoreModel<UserModel> {
     userName = json['user_name'];
     email = json['email'];
     password = json['password'];
+    imageUrl = json['imageUrl'];
   }
   UserModel.fromAuth(User user) {
     email = user.email;
