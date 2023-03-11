@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthUtil {
@@ -56,5 +57,18 @@ class FirebaseAuthUtil {
 
   Future<void> logout() async {
     await _auth.signOut();
+  }
+
+  void changePassword(String password) async {
+    //Create an instance of the current user.
+    User? user = _auth.currentUser;
+
+    //Pass in the password to updatePassword.
+    user?.updatePassword(password).then((_) {
+      debugPrint("Successfully changed password");
+    }).catchError((error) {
+      debugPrint("Password can't be changed $error");
+      //This might happen, when the wrong password is in, the user isn't found, or if the user hasn't logged in recently.
+    });
   }
 }

@@ -69,4 +69,8 @@ class AuthBloc extends Cubit<AuthState> {
     await FirebaseAuthUtil().logout();
     Navigator.pushReplacementNamed(context, RoutsNames.authentication);
   }
+
+  void restPassword(String password) {
+    FirebaseAuthUtil().changePassword(password);
+  }
 }
